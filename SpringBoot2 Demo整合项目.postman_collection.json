@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "e584c9ba-e076-4f58-b366-0b41fa2422bd",
+		"name": "SpringBoot2 Demo整合项目",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "发送普通消息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/sendMessage",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"sendMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送事务消息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/sendTransactionMess",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"sendTransactionMess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送顺序消息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/sendMessOrder",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"sendMessOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "elsearch插入数据_测试",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/elsearch/save?id=111&title=我是标题",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"elsearch",
+						"save"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "111"
+						},
+						{
+							"key": "title",
+							"value": "我是标题"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "elsearch查询_测试",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/elsearch/search?title=dsf题",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"elsearch",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "dsf题"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "spring session存_测试",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/login/session",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"login",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "spring session取_测试",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/login/get",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"login",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "上传文件到mongoDB",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/JYH/Desktop/插入用户错报错记录(共78条_12月31日执行).txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/demo/mongo/uploadFile",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"mongo",
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "从mongoDB下载文件",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/mongo/getFile?id=5e267004d1f3880863812d19&提醒: 需要文件下载的方式调用,否则报错=",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"mongo",
+						"getFile"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5e267004d1f3880863812d19"
+						},
+						{
+							"key": "提醒: 需要文件下载的方式调用,否则报错",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除mongoDB文件",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/demo/mongo/deleteFile?fileName=插入用户错报错记录(共78条_12月31日执行).txt",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"mongo",
+						"deleteFile"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "插入用户错报错记录(共78条_12月31日执行).txt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "保存模板_参数校验功能样例方法",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"msgTemplateVO\": {\r\n    \"templateID\": 0,\r\n    \"createDate\": \"2020-01-21T10:52:10.142580500\",\r\n    \"updateDate\": \"2020-01-21T10:52:10.142580500\",\r\n    \"platformType\": \"\",\r\n    \"functionType\": \"\",\r\n    \"msgType\": \"\",\r\n    \"title\": \"我是标题\",\r\n    \"content\": \"\",\r\n    \"url\": \"\",\r\n    \"picUrl\": \"\",\r\n    \"others\": \"\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/demo/template/save",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"demo",
+						"template",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
