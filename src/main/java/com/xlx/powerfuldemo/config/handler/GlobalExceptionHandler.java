@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
 
     public AjaxResult handleException(HttpServletRequest request, Exception e) {
         AjaxResult result = new AjaxResult();
-        result.setErrorInfo(e.getMessage());
+        result.setDescription(e.getMessage());
          if (e instanceof InvokeException) {
 //            result.setErrcode(ErrorCode.INTERNAL_SERVER_ERROR.getCode() + "");
 //                result.setErrorCode(ErrorCode.TANLIAN_SERVER_ERROR).setDescription("碳链接口 [" + request.getRequestURI() + "] 内部服务异常，异常消息：" + e.getMessage());
@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 //            result.setErrcode(ErrorCode.INTERNAL_SERVER_ERROR.getCode() + "");
 //            result.setErrorCode(ErrorCode.INTERNAL_SERVER_ERROR).setDescription("[" + request.getRequestURI() + "] 接口内部异常，请联系管理员");
         }
-        log.warn("返回错误信息: {}", result.getErrorInfo());
+        log.warn("返回错误信息: {}", result.getDescription());
         log.error(e.getMessage(), e);
         return AjaxResult.error(e.getMessage());
     }

@@ -35,10 +35,6 @@ public class AjaxResult implements Serializable {
      * 交互数据
      */
     private Object data;
-    /**
-     * 通用异常信息
-     */
-    private Object errorInfo;
 
     private Params params;
 
@@ -67,14 +63,6 @@ public class AjaxResult implements Serializable {
         this.data = data;
     }
 
-    public AjaxResult(boolean success, String description, Integer errorCode, Object data, Object errorInfo) {
-        this.success = success;
-        this.description = description;
-        this.errorCode = errorCode;
-        this.data = data;
-        this.errorInfo = errorInfo;
-    }
-
 
     public static AjaxResult error() {
         return new AjaxResult(false, ERROR_DESCRIPTION, ERROR_CODE);
@@ -88,8 +76,8 @@ public class AjaxResult implements Serializable {
         return new AjaxResult(false, description, errorCode);
     }
 
-    public static AjaxResult error(Object data, Integer errorCode, String description, Object errorInfo) {
-        return new AjaxResult(false, description, errorCode, data, errorInfo);
+    public static AjaxResult error(Object data, Integer errorCode, String description) {
+        return new AjaxResult(false, description, errorCode, data);
     }
 
     public static AjaxResult error(Object data) {
@@ -175,13 +163,6 @@ public class AjaxResult implements Serializable {
         this.cacheTime = cacheTime;
     }
 
-    public Object getErrorInfo() {
-        return errorInfo;
-    }
-
-    public void setErrorInfo(Object errorInfo) {
-        this.errorInfo = errorInfo;
-    }
 
     public Params getParams() {
         return params;
@@ -199,7 +180,6 @@ public class AjaxResult implements Serializable {
                 ", description='" + description + '\'' +
                 ", errorCode=" + errorCode +
                 ", data=" + data +
-                ", errorInfo=" + errorInfo +
                 ", params=" + params +
                 '}';
     }
