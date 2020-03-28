@@ -5,6 +5,7 @@ import com.xlx.powerfuldemo.config.MongoGridConfig;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.domain.Example;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -27,6 +28,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping(value = "/mongo")
+@ConditionalOnProperty("spring.data.mongodb.host")
 public class MongoController {
 
     @Autowired

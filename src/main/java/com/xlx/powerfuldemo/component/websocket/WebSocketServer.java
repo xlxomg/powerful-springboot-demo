@@ -1,5 +1,6 @@
 package com.xlx.powerfuldemo.component.websocket;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;

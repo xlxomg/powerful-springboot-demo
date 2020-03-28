@@ -5,6 +5,7 @@ import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSBuckets;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDbFactory;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
  */
 @Configuration
 @Component
+@ConditionalOnProperty("spring.data.mongodb.host")
 public class MongoGridConfig {
 
 
@@ -33,6 +35,7 @@ public class MongoGridConfig {
     private MongoDbFactory mongoDbFactory;
 
     @Bean
+    @ConditionalOnProperty("spring.data.mongodb.host")
     public GridFSBucket getGridFSBuckets() {
         MongoDatabase db = mongoDbFactory.getDb();
         return GridFSBuckets.create(db);

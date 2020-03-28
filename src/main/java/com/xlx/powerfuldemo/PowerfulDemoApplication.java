@@ -1,15 +1,21 @@
 package com.xlx.powerfuldemo;
 
+import com.mongodb.connection.Cluster;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
-@SpringBootApplication
+@SpringBootApplication(excludeName = "org.mongodb.driver.*")
 @MapperScan(value = "com.xlx.powerfuldemo.dao.mapper")
 @EnableScheduling
 @EnableRedisHttpSession
+//@ComponentScan(useDefaultFilters = true,excludeFilters = {
+//        @ComponentScan.Filter(type = FilterType.CUSTOM,classes = {MyTypeFilter.class})
+//})
 public class PowerfulDemoApplication {
 
     public static void main(String[] args) {

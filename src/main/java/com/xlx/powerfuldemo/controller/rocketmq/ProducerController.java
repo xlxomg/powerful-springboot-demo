@@ -6,12 +6,14 @@ import org.apache.rocketmq.client.producer.*;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@ConditionalOnProperty("sbootitframe.rocketmq.namesrvAddr")
 public class ProducerController {
     @Autowired
     private DefaultMQProducer defaultProducer;

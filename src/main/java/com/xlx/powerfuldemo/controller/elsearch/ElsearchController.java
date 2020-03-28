@@ -5,12 +5,15 @@ import com.xlx.powerfuldemo.component.elsearch.ArticleRepository;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("elsearch")
+@ConditionalOnProperty("spring.data.elasticsearch.cluster-name")
 public class ElsearchController {
 
     @Autowired

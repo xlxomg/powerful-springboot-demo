@@ -2,11 +2,13 @@ package com.xlx.powerfuldemo.component.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationEvent;
 import java.util.List;
 /**
  * 监听对象
  */
+@ConditionalOnProperty("sbootitframe.rocketmq.namesrvAddr")
 public class MessageEvent extends ApplicationEvent {
     private static final long serialVersionUID = -4468405250074063206L;
     private DefaultMQPushConsumer consumer;
