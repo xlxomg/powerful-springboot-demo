@@ -4,6 +4,7 @@ import com.xlx.powerfuldemo.common.exception.InvokeException;
 import com.xlx.powerfuldemo.common.exception.ServiceException;
 import com.xlx.powerfuldemo.common.response.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(Exception.class)
     public AjaxResult handleException(HttpServletRequest request, Exception e) {
         AjaxResult result = new AjaxResult();
         result.setDescription(e.getMessage());
